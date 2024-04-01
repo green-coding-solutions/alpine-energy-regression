@@ -1,0 +1,20 @@
+---
+name: Sysbench alpine workload 3.18.5
+author: Arne Tarara <arne@green-coding.berlin>
+description: Using sysbench to evaluate alpine image performance on 3.18.5
+
+services:
+  gcb-alpine-sysbench:
+    dockerfile: Dockerfile_3.18.5
+    build: .
+
+flow:
+  - name: Stress
+    container: gcb-alpine-sysbench
+    commands:
+      - type: console
+        command: sysbench cpu run --cpu-max-prime=25000 --threads=8 --time=60 --events=0 --rate=0 --debug=off
+        note: Starting Sysbench
+        log-stdout: True
+        read-sci-stdout: True
+
