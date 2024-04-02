@@ -5,8 +5,8 @@ description: Using sysbench to evaluate alpine image performance on 3.18.5
 
 services:
   gcb-alpine-sysbench:
-    dockerfile: Dockerfile_3.18.5
     build: .
+      dockerfile: Dockerfile_3.18.5
 
 flow:
   - name: Stress
