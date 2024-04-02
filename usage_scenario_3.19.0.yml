@@ -5,7 +5,8 @@ description: Using sysbench to evaluate alpine image performance on 3.19.0
 
 services:
   gcb-alpine-sysbench:
-    build: .
+    build:
+      context: .
       dockerfile: Dockerfile_3.19.0
 
 flow:
